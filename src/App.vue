@@ -3,7 +3,7 @@
     <div>
       <input type="file" ref="myfile" />
       <button @click="upload">Upload</button>
-      <button @click="mostrar">Preview</button>
+      <button @click="show">Preview</button>
     </div>
 
     <object :data="url" width="200" height="400"></object>
@@ -29,7 +29,7 @@ export default {
         console.log('foi pdf');
       });
     },
-    async mostrar() {
+    async show() {
       await getDownloadURL(ref(storage, 'folder/myfile.pdf')).then(
         (download_url) => (this.url = download_url)
       );
